@@ -1,0 +1,22 @@
+window.K={
+ "resp1.jpg": "img/resp1.jpg",
+ "resp2.jpg": "img/resp2.jpg",
+ "aviso.jpg": "img/aviso.jpg",
+ "e57.png": "img/e57.png",
+ "taller1.jpg": "img/taller1.jpg",
+ "17be22.jpg": "img/17be22.jpg",
+ "0b6a78.jpg": "img/0b6a78.jpg",
+ "228815.jpg": "img/228815.jpg",
+ "9d85dc.jpg": "img/9d85dc.jpg",
+ "d3dd4e.jpg": "img/d3dd4e.jpg",
+ "e181b5.jpg": "img/e181b5.webp",
+ "4cd535.png": "img/4cd535.png",
+ "df6745.png": "img/df6745.png",
+ "a9f3d3.png": "img/a9f3d3.png",
+ "146814.png": "img/146814.png",
+ "2528c1.png": "img/2528c1.png",
+ "39573c.png": "img/39573c.png",
+ "4779b7.png": "img/4779b7.png",
+ "d8aa25.png": "img/d8aa25.png",
+ "7e3a1a.png": "img/7e3a1a.png"
+};

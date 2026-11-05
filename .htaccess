@@ -1,0 +1,18 @@
+# Abrir index.html al entrar a lachicharra.mx
+DirectoryIndex index.html
+
+# Forzar HTTPS: quita el "#" de las 3 líneas siguientes cuando el SSL esté activo en Hostinger
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Caché para imágenes, fuentes, CSS y JS
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType font/otf "access plus 1 year"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
