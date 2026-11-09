@@ -285,8 +285,8 @@
         const res = await fetch('enviar.php', {method:'POST', headers:{'Content-Type':'application/json', 'Accept':'application/json'},
           body: JSON.stringify({tipo:'empleo', puesto:pu, base:ba, nombre:nm, telefono:tl, _hp:($('#jf [name=_hp]')||{}).value || ''})});
         const j = await res.json().catch(() => ({}));
-        if (!res.ok || j.ok !== true) return false;
-      } catch (err) { return false; }
+        if (!res.ok || j.ok !== true) { console.warn('enviar.php:', res.status, j.msg || ''); return false; }
+      } catch (err) { console.warn('enviar.php:', err); return false; }
       $('#jdone').textContent = `Recibimos tu solicitud para ${pu.toLowerCase()} en ${ba}. Te contactamos pronto.`;
     });
   stepper($('#qf'), () => { if (!$('#qnm').value.trim() || !$('#qe').value.trim()) return 'Escribe tu nombre y empresa.'; if ($('#qt').value.replace(/\D/g,'').length < 10) return 'Escribe un teléfono de 10 dígitos.'; if (!/^\S+@\S+\.\S+$/.test($('#qm').value)) return 'Escribe un correo válido.'; },
@@ -296,8 +296,8 @@
         const res = await fetch('enviar.php', {method:'POST', headers:{'Content-Type':'application/json', 'Accept':'application/json'},
           body: JSON.stringify({tipo:'clientes', industria:ind, origen:v('#qo'), destino:v('#qd'), operacion:v('#qx'), nombre:v('#qnm'), empresa:v('#qe'), telefono:v('#qt'), correo:v('#qm'), _hp:($('#qf [name=_hp]')||{}).value || ''})});
         const j = await res.json().catch(() => ({}));
-        if (!res.ok || j.ok !== true) return false;
-      } catch (err) { return false; }
+        if (!res.ok || j.ok !== true) { console.warn('enviar.php:', res.status, j.msg || ''); return false; }
+      } catch (err) { console.warn('enviar.php:', err); return false; }
       $('#qdone').textContent = (ind === 'Otros' ? 'Recibimos tu solicitud.' : `Recibimos tu solicitud para ${ind.toLowerCase()}.`) + ' Un asesor te contactará pronto.';
     });
 

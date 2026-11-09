@@ -14,10 +14,10 @@ function salir($ok, $msg = '') { echo json_encode(['ok' => $ok, 'msg' => $msg]);
 function limpio($v, $max = 600) {
   $v = is_string($v) ? trim($v) : '';
   $v = str_replace(["\r", "\n"], ' ', $v);
-  return mb_substr($v, 0, $max, 'UTF-8');
+  return function_exists('mb_substr') ? mb_substr($v, 0, $max, 'UTF-8') : substr($v, 0, $max);
 }
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); salir(false, 'Método no permitido'); }
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') { salir(false, 'enviar.php funcionando (PHP ' . PHP_VERSION . '; mail ' . (function_exists('mail') ? 'disponible' : 'DESHABILITADO') . ')'); }
 $d = json_decode(file_get_contents('php://input'), true);
 if (!is_array($d)) $d = $_POST;
 
@@ -67,6 +67,7 @@ $cab .= 'From: =?UTF-8?B?' . base64_encode('Sitio web La Chicharra') . "?= <$REM
 if ($responder) $cab .= "Reply-To: $responder\r\n";
 $asuntoCod = '=?UTF-8?B?' . base64_encode($asunto) . '?=';
 
+if (!function_exists('mail')) { http_response_code(500); salir(false, 'La función mail() está deshabilitada en el servidor'); }
 $ok = @mail($DESTINOS[$tipo], $asuntoCod, $html, $cab, '-f' . $REMITENTE);
-if (!$ok) { http_response_code(500); salir(false, 'No se pudo enviar'); }
+if (!$ok) { $e = error_get_last(); http_response_code(500); salir(false, 'mail() falló' . ($e ? ': ' . $e['message'] : '')); }
 salir(true);
