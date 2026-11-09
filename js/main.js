@@ -280,7 +280,7 @@
   }
   stepper($('#jf'), () => { if (!$('#jn').value.trim()) return 'Escribe tu nombre completo.'; if ($('#jt').value.replace(/\D/g,'').length < 10) return 'Escribe un teléfono de 10 dígitos.'; },
     async () => {
-      const RH = 'katia@lachicharra.mx', pu = puesto.get(), ba = $('#jb').value, nm = $('#jn').value.trim(), tl = $('#jt').value.trim();
+      const RH = 'reclutamiento@lachicharra.mx', pu = puesto.get(), ba = $('#jb').value, nm = $('#jn').value.trim(), tl = $('#jt').value.trim();
       try {
         const res = await fetch('https://formsubmit.co/ajax/' + RH, {method:'POST', headers:{'Content-Type':'application/json', 'Accept':'application/json'},
           body: JSON.stringify({'Puesto de interés':pu, 'Base más cercana':ba, 'Nombre completo':nm, 'Teléfono / WhatsApp':tl, _subject:`Solicitud de empleo - ${pu} - ${ba}`, _template:'table', _captcha:'false'})});
