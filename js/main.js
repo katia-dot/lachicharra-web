@@ -280,24 +280,25 @@
   }
   stepper($('#jf'), () => { if (!$('#jn').value.trim()) return 'Escribe tu nombre completo.'; if ($('#jt').value.replace(/\D/g,'').length < 10) return 'Escribe un teléfono de 10 dígitos.'; },
     async () => {
-      const pu = puesto.get(), ba = $('#jb').value, nm = $('#jn').value.trim(), tl = $('#jt').value.trim();
+      const RH = 'reclutamiento@lachicharra.mx', pu = puesto.get(), ba = $('#jb').value, nm = $('#jn').value.trim(), tl = $('#jt').value.trim();
       try {
-        const res = await fetch('enviar.php', {method:'POST', headers:{'Content-Type':'application/json', 'Accept':'application/json'},
-          body: JSON.stringify({tipo:'empleo', puesto:pu, base:ba, nombre:nm, telefono:tl, _hp:($('#jf [name=_hp]')||{}).value || ''})});
+        const res = await fetch('https://formsubmit.co/ajax/' + RH, {method:'POST', headers:{'Content-Type':'application/json', 'Accept':'application/json'},
+          body: JSON.stringify({'Puesto de interés':pu, 'Base más cercana':ba, 'Nombre completo':nm, 'Teléfono / WhatsApp':tl, _honey:($('#jf [name=_hp]')||{}).value || '', _subject:`Solicitud de empleo - ${pu} - ${ba}`, _template:'table', _captcha:'false'})});
         const j = await res.json().catch(() => ({}));
-        if (!res.ok || j.ok !== true) { console.warn('enviar.php:', res.status, j.msg || ''); return false; }
-      } catch (err) { console.warn('enviar.php:', err); return false; }
+        if (!res.ok || String(j.success) !== 'true') { console.warn('FormSubmit:', res.status, j.message || ''); return false; }
+      } catch (err) { console.warn('FormSubmit:', err); return false; }
       $('#jdone').textContent = `Recibimos tu solicitud para ${pu.toLowerCase()} en ${ba}. Te contactamos pronto.`;
     });
   stepper($('#qf'), () => { if (!$('#qnm').value.trim() || !$('#qe').value.trim()) return 'Escribe tu nombre y empresa.'; if ($('#qt').value.replace(/\D/g,'').length < 10) return 'Escribe un teléfono de 10 dígitos.'; if (!/^\S+@\S+\.\S+$/.test($('#qm').value)) return 'Escribe un correo válido.'; },
     async () => {
-      const ind = industria.get(), v = id => $(id).value.trim();
+      const VT = 'direccion.ventas@lachicharra.mx', ind = industria.get(), v = id => $(id).value.trim();
       try {
-        const res = await fetch('enviar.php', {method:'POST', headers:{'Content-Type':'application/json', 'Accept':'application/json'},
-          body: JSON.stringify({tipo:'clientes', industria:ind, origen:v('#qo'), destino:v('#qd'), operacion:v('#qx'), nombre:v('#qnm'), empresa:v('#qe'), telefono:v('#qt'), correo:v('#qm'), _hp:($('#qf [name=_hp]')||{}).value || ''})});
+        const res = await fetch('https://formsubmit.co/ajax/' + VT, {method:'POST', headers:{'Content-Type':'application/json', 'Accept':'application/json'},
+          body: JSON.stringify({'Industria':ind, 'Origen':v('#qo') || '—', 'Destino':v('#qd') || '—', 'Operación':v('#qx') || '—', 'Nombre':v('#qnm'), 'Empresa':v('#qe'), 'Teléfono':v('#qt'), 'Correo':v('#qm'),
+            _honey:($('#qf [name=_hp]')||{}).value || '', _replyto:v('#qm'), _subject:`Solicitud de evaluación operativa - ${v('#qe')} - ${ind}`, _template:'table', _captcha:'false'})});
         const j = await res.json().catch(() => ({}));
-        if (!res.ok || j.ok !== true) { console.warn('enviar.php:', res.status, j.msg || ''); return false; }
-      } catch (err) { console.warn('enviar.php:', err); return false; }
+        if (!res.ok || String(j.success) !== 'true') { console.warn('FormSubmit:', res.status, j.message || ''); return false; }
+      } catch (err) { console.warn('FormSubmit:', err); return false; }
       $('#qdone').textContent = (ind === 'Otros' ? 'Recibimos tu solicitud.' : `Recibimos tu solicitud para ${ind.toLowerCase()}.`) + ' Un asesor te contactará pronto.';
     });
 
