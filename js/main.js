@@ -278,7 +278,7 @@
     form.querySelector('[data-reset]').addEventListener('click', () => { form.reset(); form.classList.remove('sent'); go(0); });
     go(0);
   }
-  const HOJA = 'https://script.google.com/macros/s/AKfycbw5Er_S7Fiu_8eS7PfNYIQarvhKEriNTDTTkSWHYnhKUCC-hSP9-1omrKTYFpINU-zh/exec';
+  const HOJA = 'https://script.google.com/a/macros/lachicharra.mx/s/AKfycbw5Er_S7Fiu_8eS7PfNYIQarvhKEriNTDTTkSWHYnhKUCC-hSP9-1omrKTYFpINU-zh/exec';
   async function aHoja(payload){
     try {
       const res = await fetch(HOJA, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(payload)});
