@@ -1,6 +1,10 @@
 # Abrir index.html al entrar a lachicharra.mx
 DirectoryIndex index.html
 
+# Acentos correctos en HTML, CSS y JS
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .css .js
+
 # Forzar HTTPS: quita el "#" de las 3 líneas siguientes cuando el SSL esté activo en Hostinger
 # RewriteEngine On
 # RewriteCond %{HTTPS} off
