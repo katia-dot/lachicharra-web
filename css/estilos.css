@@ -634,7 +634,7 @@ html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 100px)}
 }
 
 /* ---------- barras fundidas con la portada ---------- */
-.snav .chsym svg{width:40px;height:26px;fill:var(--red);display:block}
+.snav .chsym{display:none}
 .gnav,.snav{transition:background .45s,border-color .45s,color .4s,backdrop-filter .45s}
 body.overhero:not(.mopen) .gnav:not(:hover){background:transparent}
 body.overhero:not(.mopen) .snav:not(.open){background:transparent;border-color:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
