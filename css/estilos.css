@@ -652,4 +652,4 @@ body.overhero:not(.mopen) .snav:not(.open){background:transparent;border-color:t
 .gnav .gwm small{font-size:6px;letter-spacing:.42em;font-weight:600}
 .gnav .gwm svg{width:112px;height:auto;aspect-ratio:428/47;fill:#fff;display:block}
 .herosym{display:flex;justify-content:center;margin-bottom:26px;filter:drop-shadow(0 2px 14px rgba(0,0,0,.35))}
-.herosym svg{width:clamp(64px,6vw,86px);height:auto;aspect-ratio:380/250;fill:#fff}
+.herosym svg{width:clamp(64px,6vw,86px);height:auto;aspect-ratio:380/250;fill:var(--red)}
