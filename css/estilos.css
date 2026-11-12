@@ -639,3 +639,8 @@ html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 100px)}
 body.overhero:not(.mopen) .gnav:not(:hover){background:transparent}
 body.overhero:not(.mopen) .snav:not(.open){background:transparent;border-color:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
 .page[data-pg="inicio"] .hero{margin-top:-96px;padding-top:calc(96px + clamp(90px,13vh,150px))}
+
+/* ---------- logotipo blanco en portada ---------- */
+.herowm{display:inline-flex;flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:30px;color:#fff;line-height:1;filter:drop-shadow(0 2px 14px rgba(0,0,0,.35))}
+.herowm small{font-size:clamp(8px,.8vw,11px);letter-spacing:.42em;font-weight:600}
+.herowm svg{width:clamp(220px,24vw,340px);height:auto;aspect-ratio:428/47;fill:#fff;display:block}
