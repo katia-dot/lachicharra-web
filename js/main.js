@@ -380,6 +380,10 @@
     snl.querySelectorAll('[data-sub]').forEach(a => a.classList.toggle('on', a.dataset.sub === curSub));
     let light = false; for (const s of lightSecs){ const rr = s.getBoundingClientRect(); if (rr.top <= probe && rr.bottom > probe){ light = true; break; } }
     snav.classList.toggle('light', light);
+    // barras transparentes sobre el video de portada
+    const hero = $('#inicio');
+    const over = curPage < 0 && hero && hero.getBoundingClientRect().bottom > 96;
+    document.body.classList.toggle('overhero', !!over);
     // gps
     if (!reduce){
       tt += dt;

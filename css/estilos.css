@@ -632,3 +632,10 @@ html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 100px)}
   .hero::before{background:linear-gradient(180deg,rgba(11,12,14,.96) 0%,rgba(11,12,14,.86) 30%,rgba(11,12,14,.55) 52%,rgba(11,12,14,.15) 74%,rgba(11,12,14,0) 90%)}
   .herovid video{object-position:62% 60%}
 }
+
+/* ---------- barras fundidas con la portada ---------- */
+.snav .chsym svg{width:40px;height:26px;fill:var(--red);display:block}
+.gnav,.snav{transition:background .45s,border-color .45s,color .4s,backdrop-filter .45s}
+body.overhero:not(.mopen) .gnav:not(:hover){background:transparent}
+body.overhero:not(.mopen) .snav:not(.open){background:transparent;border-color:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
+.page[data-pg="inicio"] .hero{margin-top:-96px;padding-top:calc(96px + clamp(90px,13vh,150px))}
