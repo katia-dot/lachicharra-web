@@ -343,7 +343,12 @@
   route(false);
 
   /* ---------- scroll engine ---------- */
-  const heroimg = $('#heroimg'), heroimgi = $('#heroimgi');
+  const herov = $('#herov');
+  if (herov){
+    herov.src = 'video/' + (Math.max(innerWidth, innerHeight) * (devicePixelRatio > 1 ? 1.5 : 1) > 1100 ? 'hero-1600.mp4' : 'hero-540.mp4');
+    if (reduce){ herov.removeAttribute('autoplay'); herov.pause(); }
+    else herov.play().catch(() => {});
+  }
   const seq = $('#quienes-somos'), seqbg = $('#seqbg'), lines = $$('.seq .line');
   const zoomSec = $('.zoom'), znum = $('#znum'), zcap = $('#zcap'), zbg = $('#zbg');
   znum.style.backgroundImage = zbg.style.backgroundImage = `url(${K['17be22.jpg']})`;
@@ -352,10 +357,8 @@
   function frame(now){
     const dt = Math.min(.05,(now-lastT)/1000); lastT = now;
     // hero
-    if (!reduce){
-      const r = heroimg.getBoundingClientRect(), hp = ss(0,1,clamp(1 - (r.top - 100) / (innerHeight * .8)));
-      heroimg.style.transform = `scale(${lerp(.86,1,hp)})`; heroimg.style.borderRadius = lerp(28,8,hp) + 'px';
-      heroimgi.style.transform = `scale(${lerp(1.18,1,hp)})`;
+    if (!reduce && herov && scrollY < innerHeight * 1.2){
+      herov.style.transform = `translateY(${scrollY * .28}px) scale(${1 + Math.min(scrollY / innerHeight, 1) * .06})`;
     }
     // sequence
     const sp = prog(seq), n = lines.length;

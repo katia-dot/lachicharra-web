@@ -617,3 +617,18 @@ html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 100px)}
   .chap{padding:110px 0 20px}
   .mvv3 article{min-height:300px}
 }
+
+/* ---------- portada con video ---------- */
+.hero{position:relative;isolation:isolate;min-height:100vh;min-height:100svh;padding:clamp(110px,15vh,170px) 0 clamp(80px,12vh,140px);background:#0b0c0e}
+.herovid{position:absolute;inset:0;z-index:-2;overflow:hidden;background:#0b0c0e}
+.herovid video{width:100%;height:100%;object-fit:cover;object-position:50% 62%;will-change:transform;transform-origin:50% 100%}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(11,12,14,.95) 0%,rgba(11,12,14,.82) 20%,rgba(11,12,14,.5) 40%,rgba(11,12,14,.12) 62%,rgba(11,12,14,0) 78%)}
+.hero .wrap{position:relative}
+.hero .sub{color:#e8e8ed;text-shadow:0 1px 18px rgba(0,0,0,.45)}
+.hero h1{text-shadow:0 2px 30px rgba(0,0,0,.35)}
+@media (max-width:860px){
+  .hero{min-height:92vh;min-height:92svh}
+  .hero::before{background:linear-gradient(180deg,rgba(11,12,14,.96) 0%,rgba(11,12,14,.86) 30%,rgba(11,12,14,.55) 52%,rgba(11,12,14,.15) 74%,rgba(11,12,14,0) 90%)}
+  .herovid video{object-position:62% 60%}
+}
