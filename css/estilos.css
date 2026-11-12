@@ -437,7 +437,7 @@ footer .crumb svg{width:22px;height:14px;fill:var(--ink)}
 .gnav .wide{height:44px}
 .gnav .menu{display:flex;gap:30px;height:44px;align-items:stretch}
 .gnav .item{position:static;display:flex;align-items:center}
-.gnav .item > a{font-size:12px;display:flex;align-items:center;height:100%}
+.gnav .item > a{font-size:16px;display:flex;align-items:center;height:100%}
 .fly{position:absolute;left:0;right:0;top:44px;background:#161617;border-bottom:1px solid #2a2a2d;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .3s,transform .4s var(--out),visibility 0s .3s}
 .sisters{padding:40px 0 40px}
 .sgrid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:56px}
