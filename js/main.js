@@ -306,6 +306,20 @@
 
   watch();
 
+  /* ---------- 1999: carrusel automático ---------- */
+  (() => {
+    const box = document.getElementById('gslides'); if (!box) return;
+    const ims = [...box.querySelectorAll('img')], dots = [...box.parentNode.querySelectorAll('.dots i')];
+    ims.forEach(im => im.removeAttribute('loading'));
+    let k = 0;
+    setInterval(() => {
+      if (document.hidden) return;
+      ims[k].classList.remove('on'); dots[k] && dots[k].classList.remove('on');
+      k = (k + 1) % ims.length;
+      ims[k].classList.add('on'); dots[k] && dots[k].classList.add('on');
+    }, 4000);
+  })();
+
   /* ---------- router: una página por sección ---------- */
   const pages = $$('.page');
   let curPage = -1;
