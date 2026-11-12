@@ -368,11 +368,6 @@
       const o = last ? ss(a,a+.08,sp) : ss(a,a+.06,sp) * (1 - ss(b-.06,b,sp));
       l.style.opacity = o; l.style.transform = `translateY(${last ? (1-ss(a,a+.1,sp))*40 : (sp-mid)*-140}px) scale(${lerp(.96,1,o)})`;
     });
-    // zoom
-    const zp = prog(zoomSec);
-    znum.style.transform = `scale(${lerp(7,1,ss(.05,.65,zp))})`;
-    zbg.style.opacity = 1 - ss(.08,.4,zp); zbg.style.transform = `scale(${lerp(1,.92,ss(0,.4,zp))})`;
-    const ce = ss(.6,.85,zp); zcap.style.opacity = ce; zcap.style.transform = `translateY(${(1-ce)*30}px)`;
     // chapter + subnav
     const probe = 110;
     setChapter(curPage);
